@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot password | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <aside class="auth-hero">
+      <div class="blobs"><span></span><span></span><span></span><span></span></div>
+      <div class="logo">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        CampaignHub
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow"><span class="live"></span>Account recovery</span>
+        <h1>Forgot your password?<br /><span class="grad-text">It happens.</span></h1>
+        <p>We will send a 6-digit code to your email. Enter it here with a new password and you are back in.</p>
+        <ul class="hero-features">
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>Code is sent to your registered email</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>The code works for 10 minutes</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Old sessions are logged out after the reset</li>
+        </ul>
+      </div>
+      <p class="hero-foot">© 2026 CampaignHub · Campaign Management System</p>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <div class="logo auth-mobile-logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+          CampaignHub
+        </div>
+
+        <div class="steps-mini"><span class="on" id="bar1"></span><span id="bar2"></span><span id="bar3"></span></div>
+
+        <!-- Step 1: email -->
+        <div id="step1">
+          <h2>Reset password</h2>
+          <p class="subtitle">Enter the email you registered with.</p>
+          <form id="emailForm">
+            <div class="field">
+              <label for="f_email">Email</label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <input type="email" id="f_email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary-grad btn-block" id="sendBtn">Send code</button>
+          </form>
+        </div>
+
+        <!-- Step 2: code + new password -->
+        <div id="step2" class="hidden">
+          <h2>Enter the code</h2>
+          <p class="subtitle" id="sentTo"></p>
+          <form id="resetForm">
+            <div class="field">
+              <label for="f_code">6-digit code</label>
+              <input id="f_code" class="code-input" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" required />
+            </div>
+            <div class="field">
+              <label for="f_new">New password</label>
+              <input type="password" id="f_new" minlength="6" placeholder="At least 6 characters" autocomplete="new-password" required />
+            </div>
+            <div class="field">
+              <label for="f_confirm">Confirm new password</label>
+              <input type="password" id="f_confirm" minlength="6" autocomplete="new-password" required />
+            </div>
+            <button type="submit" class="btn btn-primary-grad btn-block" id="resetBtn">Reset password</button>
+          </form>
+          <p class="switch">Didn't get it? <button class="link-like" id="resendBtn">Send again</button></p>
+        </div>
+
+        <!-- Step 3: done -->
+        <div id="step3" class="hidden" style="text-align:center">
+          <div class="status-icon amber" style="--ring: rgba(52,211,153,.45); color: var(--success); background: rgba(52,211,153,.12); border-color: rgba(52,211,153,.35)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h2>Password reset!</h2>
+          <p class="subtitle">You can now log in with your new password.</p>
+          <a class="btn btn-primary-grad btn-block" href="/index.html">Go to login</a>
+        </div>
+
+        <div id="msg" class="msg"></div>
+        <div id="devHint" class="dev-hint hidden"></div>
+
+        <p class="switch" id="backLink">Remembered it? <a href="/index.html">Log in</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/forgot.js"></script>
+</body>
+</html>

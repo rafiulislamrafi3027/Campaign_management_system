@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="report-page">
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Admin Panel</p>
+          <h1>Reports</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card report-bar">
+          <div>
+            <h2>CampaignHub platform report</h2>
+            <p id="genAt">Loading...</p>
+          </div>
+          <div class="report-actions no-print">
+            <button class="btn btn-light" id="csvBtn"></button>
+            <button class="btn btn-primary-grad" id="pdfBtn"></button>
+          </div>
+        </section>
+
+        <section class="stats" id="tiles"></section>
+
+        <div class="exp-top">
+          <section class="card">
+            <div class="card-head"><div><h2>Budget: requested vs approved vs spent</h2><p>All campaigns except drafts</p></div></div>
+            <div id="finance"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><div><h2>Spending by category</h2><p>Every logged expense</p></div></div>
+            <div id="cats"></div>
+          </section>
+        </div>
+
+        <div class="exp-top">
+          <section class="card">
+            <div class="card-head"><div><h2>Campaigns by status</h2><p>Where every campaign is in the workflow</p></div></div>
+            <div id="statusBox"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><div><h2>Campaigns by category</h2><p>What kind of work the club does</p></div></div>
+            <div id="catCount"></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="card-head"><div><h2>Budget by campaign</h2><p>Approved, active and completed campaigns — highest utilization first</p></div></div>
+          <div class="table-wrap"><table class="report-table" id="tFinance"></table></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h2>Completed campaign results</h2><p>From the completion reports verified by the Admin</p></div></div>
+          <div class="table-wrap"><table class="report-table" id="tResults"></table></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h2>Top volunteers</h2><p>By tasks verified by managers</p></div></div>
+          <div class="table-wrap"><table class="report-table" id="tVols"></table></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h2>AI usage</h2><p>How often AI suggestions were used</p></div></div>
+          <div class="table-wrap"><table class="report-table" id="tAi"></table></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin-reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Campaigns | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Campaign Manager</p>
+          <h1>My Campaigns</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Your campaigns</h2>
+              <p>Create a draft, submit it for Admin approval, then make it active for volunteers.</p>
+            </div>
+            <button class="btn btn-primary-grad" id="newBtn"></button>
+          </div>
+
+          <div class="toolbar">
+            <div class="tabs scroll" id="tabs"></div>
+          </div>
+
+          <div class="camp-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/manager-campaigns.js"></script>
+</body>
+</html>

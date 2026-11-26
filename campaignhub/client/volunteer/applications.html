@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Applications | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Volunteer</p>
+          <h1>My Applications</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card status-card hidden" id="blocked"></section>
+
+        <section class="card hidden" id="area">
+          <div class="card-head">
+            <div>
+              <h2>Campaigns you applied to</h2>
+              <p>Pending applications can be withdrawn. Accepted campaigns will get tasks in the next step.</p>
+            </div>
+            <a class="btn btn-primary-grad" href="/volunteer/campaigns.html" id="browseBtn"></a>
+          </div>
+          <div class="toolbar"><div class="tabs scroll" id="tabs"></div></div>
+          <div class="camp-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/volunteer-applications.js"></script>
+</body>
+</html>

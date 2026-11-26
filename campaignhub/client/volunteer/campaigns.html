@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Campaigns | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Volunteer</p>
+          <h1>Browse Campaigns</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Shown if the volunteer is not verified yet -->
+        <section class="card status-card hidden" id="blocked"></section>
+
+        <section class="card hidden" id="browse">
+          <div class="card-head">
+            <div>
+              <h2>Active campaigns</h2>
+              <p>All campaigns here are approved by the Admin. Campaigns that match your skills are marked.</p>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="input-wrap grow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="search" placeholder="Search by title, location or skill..." />
+            </div>
+            <select id="category">
+              <option value="">All categories</option>
+              <option>Relief</option><option>Education</option><option>Health</option>
+              <option>Environment</option><option>Awareness</option><option>Fundraising</option><option>Other</option>
+            </select>
+            <select id="sort">
+              <option value="match">Best match first</option>
+              <option value="date">Starting soonest</option>
+            </select>
+          </div>
+
+          <div class="camp-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/volunteer-campaigns.js"></script>
+</body>
+</html>

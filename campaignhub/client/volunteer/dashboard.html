@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer Dashboard | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Volunteer</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Shown while the account is pending or rejected (Req 1.6) -->
+        <section class="card status-card hidden" id="statusBox"></section>
+
+        <!-- Shown only after the Admin approves the account -->
+        <section class="hidden" id="mainArea">
+          <div class="banner">
+            <h2 id="welcomeTitle">Welcome!</h2>
+            <p>Your account is verified. Find a campaign that matches your skills and apply to join.</p>
+          </div>
+
+          <section class="card hidden" id="actionPanel"></section>
+
+          <section class="card hidden" id="recPanel"></section>
+
+          <div class="stats" id="volStats">
+            <div class="stat">
+              <div class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div><div class="num" id="sApplied">0</div><div class="lbl">Pending applications</div></div>
+            </div>
+            <div class="stat">
+              <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+              <div><div class="num" id="sAccepted">0</div><div class="lbl">Campaigns joined</div></div>
+            </div>
+            <div class="stat">
+              <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+              <div><div class="num" id="sOpen">0</div><div class="lbl">Active campaigns</div></div>
+            </div>
+            <div class="stat">
+              <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div><div class="num" id="sMatch">0</div><div class="lbl">Match your skills</div></div>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature">
+              <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+              <h3>Browse campaigns</h3>
+              <p>Find approved campaigns that match your skills.</p>
+              <a class="link-btn" href="/volunteer/campaigns.html">Browse now →</a>
+            </div>
+            <div class="feature">
+              <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <h3>Do your tasks</h3>
+              <p>Submit proof of your work for the manager to verify.</p>
+              <a class="link-btn" href="/volunteer/tasks.html">Open my tasks →</a>
+            </div>
+            <div class="feature">
+              <div class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
+              <h3>Earn certificates</h3>
+              <p>Get a certificate for every campaign you complete.</p>
+              <a class="link-btn" href="/volunteer/certificates.html">My certificates →</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/volunteer.js"></script>
+</body>
+</html>

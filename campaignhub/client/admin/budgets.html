@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Monitor | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Admin Panel</p>
+          <h1>Budget Monitor</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="stats">
+          <div class="stat">
+            <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+            <div><div class="num" id="sRequested">৳ 0</div><div class="lbl">Requested budget</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+            <div><div class="num" id="sApproved">৳ 0</div><div class="lbl">Approved budget</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+            <div><div class="num" id="sSpent">৳ 0</div><div class="lbl">Actual expenses</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></svg></div>
+            <div><div class="num" id="sOver">0</div><div class="lbl">Over budget</div></div>
+          </div>
+        </section>
+
+        <div class="exp-top">
+          <section class="card">
+            <div class="card-head"><div><h2>Platform utilization</h2><p>All approved, active and completed campaigns together</p></div></div>
+            <div id="overall"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><div><h2>Spending by category</h2><p>Across every campaign</p></div></div>
+            <div id="cats"></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="card-head">
+            <div><h2>Campaign budgets</h2><p>Campaigns over budget are shown first. Click "Expenses" to see every entry and receipt.</p></div>
+            <div class="tabs" id="tabs"></div>
+          </div>
+          <div class="table-wrap">
+            <table class="budget-table">
+              <thead><tr><th>Campaign</th><th>Manager</th><th>Utilization</th><th class="right">Action</th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin-budgets.js"></script>
+</body>
+</html>

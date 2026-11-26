@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manager Dashboard | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Campaign Manager</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="banner">
+          <h2 id="welcomeTitle">Welcome!</h2>
+          <p>Create campaigns, review volunteer applications, assign tasks and track your budget — all from this dashboard.</p>
+        </div>
+
+        <section class="stats">
+          <div class="stat">
+            <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+            <div><div class="num" id="sTotal">0</div><div class="lbl">Total campaigns</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><div class="num" id="sWaiting">0</div><div class="lbl">Waiting approval</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div><div class="num" id="sActive">0</div><div class="lbl">Active now</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+            <div><div class="num" id="sBudget">৳ 0</div><div class="lbl" id="sBudgetLbl">Approved budget</div></div>
+          </div>
+        </section>
+
+        <section class="card hidden" id="actionPanel"></section>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+            <h3>Create a campaign</h3>
+            <p>Add the goal, dates, location and budget, then submit it for Admin approval.</p>
+            <a class="link-btn" href="/manager/campaigns.html">Go to My Campaigns →</a>
+          </div>
+          <div class="feature">
+            <div class="ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
+            <h3>Review applications</h3>
+            <p id="appText">Accept the volunteers who apply to your campaign.</p>
+            <a class="link-btn" href="/manager/applications.html">Review applications →</a>
+          </div>
+          <div class="feature">
+            <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+            <h3>Assign &amp; verify tasks</h3>
+            <p>Get smart volunteer suggestions for each task and verify their proof.</p>
+            <a class="link-btn" href="/manager/tasks.html">Go to Tasks →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script>
+    const manager = requireRole("manager");
+    if (manager) {
+      fillUserChip(manager);
+      renderSidebar("manager", "dashboard");
+      renderActionPanel("actionPanel");
+      document.getElementById("welcomeTitle").innerHTML = `Welcome, ${esc(manager.name.split(" ")[0])}! <span class="wave">👋</span>`;
+      loadStats();
+    }
+
+    async function loadStats() {
+      try {
+        const { campaigns } = await api("/campaigns/mine");
+        const n = countBy(campaigns);
+        document.getElementById("sTotal").textContent = n.all;
+        document.getElementById("sWaiting").textContent = n.submitted || 0;
+        document.getElementById("sActive").textContent = n.active || 0;
+        const budget = campaigns
+          .filter((c) => ["approved", "active", "completed"].includes(c.status))
+          .reduce((sum, c) => sum + (c.budget || 0), 0);
+        document.getElementById("sBudget").textContent = formatMoney(budget);
+        try {
+          const ex = await api("/expenses/manager");
+          const spent = ex.campaigns.reduce((s, c) => s + c.spent, 0);
+          document.getElementById("sBudgetLbl").textContent = `Approved budget · ${formatMoney(spent)} spent`;
+        } catch (e) {}
+
+        const apps = await api("/applications/manager");
+        const pending = apps.applications.filter((a) => a.status === "applied").length;
+        if (pending) document.getElementById("appText").textContent = `${pending} volunteer application${pending > 1 ? "s are" : " is"} waiting for your review.`;
+      } catch (err) {
+        toast(err.message, "error");
+      }
+    }
+  </script>
+</body>
+</html>

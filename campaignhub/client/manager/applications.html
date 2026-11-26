@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Campaign Manager</p>
+          <h1>Volunteer Applications</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Your active campaigns</h2>
+              <p>Click a campaign to see only its applications. Green skills match what the campaign needs.</p>
+            </div>
+          </div>
+          <div class="camp-summary" id="summary"></div>
+
+          <div class="toolbar"><div class="tabs scroll" id="tabs"></div></div>
+          <div class="camp-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/manager-applications.js"></script>
+</body>
+</html>

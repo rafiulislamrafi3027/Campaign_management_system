@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Campaign Manager</p>
+          <h1>Tasks &amp; Proof Review</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="stats">
+          <div class="stat">
+            <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><div class="num" id="sTotal">0</div><div class="lbl">Total tasks</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><div class="num" id="sReview">0</div><div class="lbl">Waiting for your review</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+            <div><div class="num" id="sDone">0%</div><div class="lbl">Verified completion rate</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+            <div><div class="num" id="sLate">0</div><div class="lbl">Overdue tasks</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Your campaigns</h2>
+              <p>Pick a campaign, then create tasks for its accepted volunteers. Only you can mark a task as completed.</p>
+            </div>
+            <div class="page-actions">
+              <button class="btn btn-ai" id="aiBtn"></button>
+              <button class="btn btn-primary-grad" id="newBtn"></button>
+            </div>
+          </div>
+          <div class="camp-summary" id="summary"></div>
+          <div class="toolbar"><div class="tabs scroll" id="tabs"></div></div>
+          <div class="camp-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/manager-tasks.js"></script>
+</body>
+</html>

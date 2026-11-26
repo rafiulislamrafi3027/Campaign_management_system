@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb" id="crumb">Account</p>
+          <h1>My Profile</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="profile-grid">
+          <!-- Left: summary -->
+          <section class="card profile-card" id="summary"></section>
+
+          <!-- Right: forms -->
+          <div>
+            <section class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Personal information</h2>
+                  <p id="infoHint">Keep your details up to date.</p>
+                </div>
+              </div>
+              <form id="infoForm">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="p_name">Full name</label>
+                    <input id="p_name" required minlength="2" maxlength="80" />
+                  </div>
+                  <div class="field">
+                    <label for="p_email">Email <span class="muted">(cannot be changed)</span></label>
+                    <input id="p_email" readonly />
+                  </div>
+                  <div class="field">
+                    <label for="p_phone">Phone</label>
+                    <input id="p_phone" type="tel" maxlength="20" placeholder="01XXXXXXXXX" />
+                  </div>
+                  <div class="field">
+                    <label for="p_location">Location</label>
+                    <input id="p_location" maxlength="100" placeholder="e.g. Uttara, Dhaka" />
+                  </div>
+
+                  <!-- Manager only -->
+                  <div class="field full hidden" id="orgField">
+                    <label for="p_org">Organization / Club name</label>
+                    <input id="p_org" maxlength="120" />
+                  </div>
+
+                  <!-- Volunteer only -->
+                  <div class="field full hidden" id="availField">
+                    <label for="p_avail">Availability</label>
+                    <select id="p_avail">
+                      <option value="Weekends">Weekends (Fri–Sat)</option>
+                      <option value="Weekdays">Weekdays (Sun–Thu)</option>
+                      <option value="Evenings">Evenings</option>
+                      <option value="Flexible">Flexible</option>
+                    </select>
+                  </div>
+                  <div class="field full hidden" id="skillsField">
+                    <label>My skills <span class="muted">(used to suggest you for the right tasks)</span></label>
+                    <div id="skillPicker"></div>
+                  </div>
+                </div>
+                <div id="infoMsg" class="msg"></div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary-grad" id="infoBtn">Save changes</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="card">
+              <div class="card-head">
+                <div>
+                  <h2>Change password</h2>
+                  <p>You will stay logged in here. Other devices will be logged out.</p>
+                </div>
+              </div>
+              <form id="pwForm">
+                <div class="form-grid">
+                  <div class="field full">
+                    <label for="pw_current">Current password</label>
+                    <input id="pw_current" type="password" required autocomplete="current-password" />
+                  </div>
+                  <div class="field">
+                    <label for="pw_new">New password</label>
+                    <input id="pw_new" type="password" required minlength="6" autocomplete="new-password" />
+                  </div>
+                  <div class="field">
+                    <label for="pw_confirm">Confirm new password</label>
+                    <input id="pw_confirm" type="password" required minlength="6" autocomplete="new-password" />
+                  </div>
+                </div>
+                <div id="pwMsg" class="msg"></div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-light" id="pwBtn">Update password</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

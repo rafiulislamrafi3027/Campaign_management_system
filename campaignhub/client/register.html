@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <!-- Left: brand panel -->
+    <aside class="auth-hero">
+      <div class="blobs"><span></span><span></span><span></span><span></span></div>
+      <div class="logo">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        CampaignHub
+      </div>
+
+      <div class="hero-text">
+        <span class="eyebrow"><span class="live"></span>Free for volunteers &amp; organizers</span>
+        <h1>Join the people<br /><span class="grad-text">changing their community.</span></h1>
+        <p>Create an account as a volunteer to find campaigns that match your skills, or as a manager to organise your own.</p>
+        <ul class="hero-features">
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>Register and get verified by the Admin</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Find campaigns that fit your skills</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>Earn certificates for verified work</li>
+        </ul>
+        <div class="hero-stats">
+          <div><strong>3</strong><span>User roles</span></div>
+          <div><strong>2-step</strong><span>Verification</span></div>
+          <div><strong>Live</strong><span>Progress tracking</span></div>
+        </div>
+      </div>
+
+      <p class="hero-foot">© 2026 CampaignHub · Campaign Management System</p>
+    </aside>
+
+    <!-- Right: form -->
+    <main class="auth-main">
+      <div class="auth-card wide">
+        <div class="logo auth-mobile-logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+          CampaignHub
+        </div>
+
+        <h2>Create your account</h2>
+        <p class="subtitle">It only takes a minute.</p>
+
+        <form id="registerForm" autocomplete="off">
+          <label>I want to join as</label>
+          <!-- Hidden select keeps register.js working; the cards below control it -->
+          <select id="role" class="hidden">
+            <option value="volunteer">Volunteer</option>
+            <option value="manager">Campaign Manager</option>
+          </select>
+          <div class="role-picker">
+            <label class="role-option">
+              <input type="radio" name="rolePick" value="volunteer" checked />
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+              <span><strong>Volunteer</strong><small>Join campaigns and do tasks</small></span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="rolePick" value="manager" />
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+              <span><strong>Campaign Manager</strong><small>Create and run campaigns</small></span>
+            </label>
+          </div>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="new-name" autocomplete="off" placeholder="e.g. Rahat Hasan" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <input type="email" id="email" name="new-email" autocomplete="off" placeholder="you@example.com" required readonly onfocus="this.removeAttribute('readonly')" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input type="password" id="password" name="new-password" autocomplete="new-password" minlength="6" placeholder="••••••••" required />
+              </div>
+              <p class="hint">At least 6 characters</p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="new-phone" autocomplete="off" placeholder="01XXXXXXXXX" />
+            </div>
+
+            <div class="field">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="new-location" autocomplete="off" placeholder="e.g. Mirpur, Dhaka" />
+            </div>
+
+            <!-- Shown only for managers -->
+            <div id="managerFields" class="field full hidden">
+              <label for="organization">Organization / Club name</label>
+              <input type="text" id="organization" name="new-organization" autocomplete="off" placeholder="e.g. Youth Help Foundation" />
+            </div>
+
+            <!-- Shown only for volunteers -->
+            <div id="volunteerFields" class="full">
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="availability">Availability</label>
+                  <select id="availability">
+                    <option value="Weekends">Weekends (Fri–Sat)</option>
+                    <option value="Weekdays">Weekdays (Sun–Thu)</option>
+                    <option value="Evenings">Evenings</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label>Skills</label>
+                  <input type="hidden" id="skills" />
+                  <div id="skillPicker"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary-grad btn-block" id="registerBtn">Create account</button>
+        </form>
+
+        <div id="msg" class="msg"></div>
+
+        <p class="switch">Already have an account? <a href="/index.html">Log in</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script>
+    // Role cards -> hidden <select id="role">, so register.js keeps working unchanged
+    document.querySelectorAll('input[name="rolePick"]').forEach((radio) => {
+      radio.addEventListener("change", () => {
+        const select = document.getElementById("role");
+        select.value = radio.value;
+        select.dispatchEvent(new Event("change"));
+      });
+    });
+    // After the form is reset, select "Volunteer" again
+    document.getElementById("registerForm").addEventListener("reset", () => {
+      setTimeout(() => (document.querySelector('input[name="rolePick"][value="volunteer"]').checked = true));
+    });
+  </script>
+  <script>
+    // Skill picker writes a comma list into the hidden #skills input that register.js reads
+    const regPicker = skillPicker(document.getElementById("skillPicker"), [], (list) => {
+      document.getElementById("skills").value = list.join(", ");
+    });
+    document.getElementById("registerForm").addEventListener("reset", () => setTimeout(() => regPicker.set([])));
+  </script>
+  <script src="/js/register.js"></script>
+</body>
+</html>

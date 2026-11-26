@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <!-- Left: brand panel -->
+    <aside class="auth-hero">
+      <div class="blobs"><span></span><span></span><span></span><span></span></div>
+      <div class="logo">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        CampaignHub
+      </div>
+
+      <div class="hero-text">
+        <span class="eyebrow"><span class="live"></span>Campaign Management System</span>
+        <h1>Run campaigns that<br /><span class="grad-text">make a real impact.</span></h1>
+        <p>One place for campaign managers, volunteers and admins to plan, assign and verify every piece of work.</p>
+        <ul class="hero-features">
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>Verified volunteers and approved campaigns</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Proof-based task completion</li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>Live budget and progress tracking</li>
+        </ul>
+        <div class="hero-stats">
+          <div><strong>3</strong><span>User roles</span></div>
+          <div><strong>2-step</strong><span>Verification</span></div>
+          <div><strong>Live</strong><span>Progress tracking</span></div>
+        </div>
+      </div>
+
+      <p class="hero-foot">© 2026 CampaignHub · Campaign Management System</p>
+    </aside>
+
+    <!-- Right: form -->
+    <main class="auth-main">
+      <div class="auth-card">
+        <div class="logo auth-mobile-logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+          CampaignHub
+        </div>
+
+        <h2>Welcome back <span class="wave">👋</span></h2>
+        <p class="subtitle">Log in to continue to your dashboard.</p>
+
+        <form id="loginForm">
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              <input type="email" id="email" name="email" autocomplete="username" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a href="/forgot.html" id="forgotLink">Forgot password?</a>
+            </div>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary-grad btn-block" id="loginBtn">Log in</button>
+        </form>
+
+        <div id="msg" class="msg"></div>
+
+        <p class="switch">New to CampaignHub? <a href="/register.html">Create an account</a></p>
+        <p class="switch" style="margin-top:6px">Got a certificate? <a href="/verify.html">Verify it here</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

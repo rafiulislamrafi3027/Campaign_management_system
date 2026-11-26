@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Admin Panel</p>
+          <h1>Volunteer Verification</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card hidden" id="actionPanel"></section>
+
+        <!-- Stat cards -->
+        <section class="stats">
+          <div class="stat">
+            <div class="ico indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="num" id="statTotal">0</div><div class="lbl">Total volunteers</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><div class="num" id="statPending">0</div><div class="lbl">Waiting for review</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+            <div><div class="num" id="statApproved">0</div><div class="lbl">Approved</div></div>
+          </div>
+          <div class="stat">
+            <div class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></div>
+            <div><div class="num" id="statRejected">0</div><div class="lbl">Rejected</div></div>
+          </div>
+        </section>
+
+        <!-- Table -->
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Volunteer accounts</h2>
+              <p>New volunteers can use the platform only after you approve them.</p>
+            </div>
+            <div class="tabs">
+              <button class="tab active" data-status="pending">Pending <span class="count" id="countPending">0</span></button>
+              <button class="tab" data-status="approved">Approved <span class="count" id="countApproved">0</span></button>
+              <button class="tab" data-status="rejected">Rejected <span class="count" id="countRejected">0</span></button>
+            </div>
+          </div>
+
+          <div id="msg" class="msg"></div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Volunteer</th>
+                  <th>Contact</th>
+                  <th>Skills</th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="volunteerRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reject modal -->
+  <div class="modal-backdrop hidden" id="rejectModal">
+    <div class="modal">
+      <h3>Reject volunteer</h3>
+      <p id="rejectWho">The volunteer will see this reason when they log in.</p>
+      <label for="rejectReason">Reason for rejection</label>
+      <textarea id="rejectReason" placeholder="e.g. The information provided is incomplete"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-light" id="rejectCancel">Cancel</button>
+        <button class="btn btn-danger" id="rejectConfirm">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

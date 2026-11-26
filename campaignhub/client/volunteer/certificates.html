@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Certificates | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Volunteer</p>
+          <h1>My Certificates</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card status-card hidden" id="blocked"></section>
+
+        <section class="card hidden" id="area">
+          <div class="card-head">
+            <div>
+              <h2>Your certificates</h2>
+              <p>You get a certificate when a campaign you worked in is verified as completed by the Admin. Anyone can check it with the certificate ID.</p>
+            </div>
+            <a class="btn btn-light" href="/verify.html" target="_blank" id="verifyBtn"></a>
+          </div>
+          
+          <div class="cert-grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/volunteer-certificates.js"></script>
+</body>
+</html>

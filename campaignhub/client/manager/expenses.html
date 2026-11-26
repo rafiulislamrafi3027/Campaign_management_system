@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expenses | CampaignHub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <p class="crumb">Campaign Manager</p>
+          <h1>Expenses &amp; Budget</h1>
+        </div>
+        <div class="user-chip">
+          <div class="meta"><strong id="who"></strong><small id="whoRole"></small></div>
+          <div class="avatar" id="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <h2>Your campaigns</h2>
+              <p>Pick a campaign to log its expenses. You will be warned at 80% of the budget and when it is exceeded.</p>
+            </div>
+            <button class="btn btn-primary-grad" id="newBtn"></button>
+          </div>
+          <div class="camp-summary" id="summary"></div>
+        </section>
+
+        <div id="detail" class="hidden">
+          <div class="exp-top">
+            <section class="card">
+              <div class="card-head"><div><h2>Budget utilization</h2><p id="campTitle"></p></div></div>
+              <div id="meter"></div>
+            </section>
+            <section class="card">
+              <div class="card-head"><div><h2>Spending by category</h2><p>Where the money went</p></div></div>
+              <div id="cats"></div>
+            </section>
+          </div>
+
+          <section class="card">
+            <div class="card-head">
+              <div><h2>Expense entries</h2><p id="listHint"></p></div>
+            </div>
+            <div class="exp-list" id="list"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/manager-expenses.js"></script>
+</body>
+</html>
