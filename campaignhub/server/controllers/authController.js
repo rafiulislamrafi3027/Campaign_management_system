@@ -276,8 +276,9 @@ async function forgotPassword(req, res) {
     user.resetRequestedAt = new Date();
     await user.save();
 
-    await sendResetCode(user, code);
-    await logAction(req, "account.reset_request", { type: "User", id: user._id, label: user.name }, "6-digit code sent", user);
+    const sent = await sendResetCode(user, code);
+    const how = sent.mode === "console" ? "shown in server terminal" : sent.ok ? `sent by email (${sent.mode})` : `email failed: ${sent.error}`;
+    await logAction(req, "account.reset_request", { type: "User", id: user._id, label: user.name }, `6-digit code ${how}`, user);
     res.json({ message: SAME_REPLY, devHint: devHint() });
   } catch (err) {
     console.error(err);
