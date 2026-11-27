@@ -468,3 +468,14 @@ Admin যখন Completion Report **Verify** করে, তখন system নি�
 ## অন্যান্য
 - সব উত্তরে নিরাপত্তা header: `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Referrer-Policy`
 - নতুন API: `POST /api/auth/logout` (file cookie মুছে দেয়)
+
+---
+
+# Forgot password: code by real email (Req 1.7)
+
+Code পাঠানোর ৩টা উপায় (এই ক্রমে চেষ্টা করে):
+1. **Brevo email API** (সুপারিশ): PC আর Render দুই জায়গাতেই চলে। ফ্রি, দিনে ৩০০ ইমেইল। `.env`-এ `BREVO_API_KEY`, `MAIL_FROM_EMAIL`, `MAIL_FROM_NAME`
+2. **Gmail SMTP** (App Password + `npm install nodemailer`): শুধু PC-তে। Render-এর ফ্রি প্ল্যানে ইমেইলের পোর্ট (25/465/587) বন্ধ
+3. কিছু সেট না থাকলে: code terminal-এ দেখায়
+
+ইমেইল সেট করা থাকলে code **শুধু ইমেইলে** যায়, terminal বা Logs-এ কখনো না (নিরাপত্তার জন্য)। পাঠাতে ব্যর্থ হলে সাইট বন্ধ হয় না, শুধু কারণ Logs আর Audit Log-এ লেখা থাকে।
